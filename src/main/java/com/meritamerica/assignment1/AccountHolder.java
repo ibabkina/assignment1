@@ -1,34 +1,45 @@
 package com.meritamerica.assignment1;
 
+/**
+ * This program creates an account holder and instantiates their checking 
+ * and savings accounts. it allows to get information about an account holder and 
+ * their accounts.
+ * 
+ * @author Irina Babkina 
+ */
+
 public class AccountHolder {
 	
 	private String firstName;
 	private String middleName;
 	private String lastName;
 	private String ssn; //Social Security Number
-	private CheckingAccount chkAccount;
-	private SavingsAccount savAccount;
+	private CheckingAccount checkingAccount;
+	private SavingsAccount savingsAccount;
 
 	public AccountHolder() {}
 	
-/**
+	/**
 	 * @param firstName
 	 * @param middleName
 	 * @param lastName
 	 * @param ssn
-	 * @param chAcc
-	 * @param savAcc
+	 * @param checkingAccountOpeningBalance
+	 * @param savingsAccountOpeningBalance
 	 */
-	public AccountHolder(String firstName, String middleName, String lastName,
-							String ssn, double checkingAccountOpeningBalance,
+	public AccountHolder(String firstName, 
+							String middleName, 
+							String lastName,
+							String ssn, 
+							double checkingAccountOpeningBalance,
 							double savingsAccountOpeningBalance) {
 		//super();
 		this.firstName = firstName;
 		this.middleName = middleName;
 		this.lastName = lastName;
 		this.ssn = ssn;
-		this.chkAccount = new CheckingAccount(checkingAccountOpeningBalance);
-		this.savAccount = new SavingsAccount(savingsAccountOpeningBalance);
+		this.checkingAccount = new CheckingAccount(checkingAccountOpeningBalance);
+		this.savingsAccount = new SavingsAccount(savingsAccountOpeningBalance);
 	}
 
 	/**
@@ -88,22 +99,22 @@ public class AccountHolder {
 	}
 
 	/**
-	 * @return the chAcc
+	 * @return the CheckingAccount
 	 */
 	public CheckingAccount getCheckingAccount() {
-		return chkAccount;
+		return checkingAccount;
 	}
 
 	/**
-	 * @return the savAcc
+	 * @return the SavingsAccount
 	 */
 	public SavingsAccount getSavingsAccount() {
-		return savAccount;
+		return savingsAccount;
 	}
 
 	@Override
 	public String toString() {
-		return "\nName: " +  this.getFirstName() + " " + this.getMiddleName() + " " + this.getLastName()
+		return "\n\nName: " +  this.getFirstName() + " " + this.getMiddleName() + " " + this.getLastName()
 				+ "\nSSN: " + this.getSSN() 
 				+ this.getCheckingAccount().toString()
 				+ this.getSavingsAccount().toString();
